@@ -9,14 +9,20 @@ class SearchBar extends Component {
     this.setState({ searchTerm: e.target.value });
   }
 
+  onSubmitHandler(e) {
+    e.preventDefault();
+    console.log('form submitted:', this.state.searchTerm);
+  }
+
   render() {
     return (
-      <div>
+      <form className="SearchBar" onSubmit={this.onSubmitHandler.bind(this)}>
         <input
           onChange={this.onChangeHandler.bind(this)}
           value={this.state.searchTerm}
         />
-      </div>
+        <button>Search</button>
+      </form>
     );
   }
 }
