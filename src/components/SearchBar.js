@@ -11,7 +11,7 @@ class SearchBar extends Component {
 
   onSubmitHandler(e) {
     e.preventDefault();
-    console.log('form submitted:', this.state.searchTerm);
+    this.props.fetch(this.state.searchTerm);
   }
 
   render() {
