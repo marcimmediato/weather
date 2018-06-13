@@ -1,21 +1,23 @@
 import React from 'react';
 
-export default props => {
-  const { temp, weather, dt } = props.forecast;
-  return <div>{changeToDay(dt)}</div>;
-};
+import changeToDay from '../utils/changeToDay';
 
-const changeToDay = epoch => {
-  const weekday = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday'
-  ];
-  const day = new Date(epoch * 1000).getDay();
-  return weekday[day];
+export default props => {
+  const { temp, weather, dt, humidity } = props.forecast;
+
+  return (
+    <td>
+      <div> {changeToDay(dt)}</div>
+      <div>
+        <img
+          src={window.location.origin + `/img/${weather[0].icon}.png`}
+          alt={weather[0].main}
+        />
+      </div>
+      <div>{weather[0].main}</div>
+      <div>Min: {temp.min}</div>
+      <div>Max: {temp.max}</div>
+      <div>Humidity: {humidity}</div>
+    </td>
+  );
 };

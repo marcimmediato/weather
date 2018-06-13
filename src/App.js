@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar fetch={this.fetchWeather.bind(this)} />
-        {forecast}
+        <table>{forecast}</table>
       </div>
     );
   }

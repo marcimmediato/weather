@@ -6,9 +6,12 @@ const ForecastList = props => {
     return <ForecastListItem forecast={day} key={index} />;
   });
 
-  //let forecastList = props.forecast || <div>Loading Forecast</div>;
-
-  return <div>{forecastList}</div>;
+  return (
+    <tr className="weather-row">
+      <td className="name-of-city">{props.forecast.city.name}</td>
+      {forecastList}
+    </tr>
+  );
 };
 
 export default ForecastList;
