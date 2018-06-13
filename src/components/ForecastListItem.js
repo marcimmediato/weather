@@ -15,8 +15,8 @@ export default props => {
         />
       </div>
       <div>{weather[0].main}</div>
-      <div>Min: {temp.min}</div>
-      <div>Max: {temp.max}</div>
+      <div>Min: {Math.floor(temp.min)}&#176; F</div>
+      <div>Max: {Math.floor(temp.max)}&#176; F</div>
       <div>Humidity: {humidity}</div>
     </td>
   );
