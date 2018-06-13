@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './App.css';
 
 import SearchBar from './components/SearchBar';
 import ForecastList from './components/ForecastList';
 
-import forecastData from './forecastData';
+const BASE_URL =
+  'http://api.openweathermap.org/data/2.5/forecast/daily?cnt=5&units=imperial&q=';
+const APP_ID = '81e5d6b0b332d48eefcc4cd4ebd44be3';
 
 class App extends Component {
   state = {
@@ -14,8 +17,13 @@ class App extends Component {
 
   fetchWeather(city) {
     console.log(`Called fetch with: ${city}`);
-    // Add API call here down the road.
-    this.setState({ forecast: forecastData });
+
+    axios
+      .get(`${BASE_URL}${city},us&APPID=${APP_ID}`)
+      .then(res => {
+        this.setState({ forecast: res.data });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -27,7 +35,9 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar fetch={this.fetchWeather.bind(this)} />
-        <table>{forecast}</table>
+        <table>
+          <tbody>{forecast}</tbody>
+        </table>
       </div>
     );
   }
