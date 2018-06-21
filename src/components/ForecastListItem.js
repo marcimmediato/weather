@@ -3,7 +3,7 @@ import React from 'react';
 import changeToDay from '../utils/changeToDay';
 
 export default props => {
-  const { temp, weather, dt, humidity } = props.forecast;
+  const { temp, weather, dt } = props.forecast;
 
   return (
     <td>
