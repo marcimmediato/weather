@@ -6,7 +6,7 @@ export default props => {
   const { temp, weather, dt } = props.forecast;
 
   return (
-    <td>
+    <div className={'day-' + props.dayNum}>
       <div> {changeToDay(dt)}</div>
       <div>
         <img
@@ -17,6 +17,6 @@ export default props => {
       <div>{weather[0].main}</div>
       <div>Min: {Math.floor(temp.min)}&#176; F</div>
       <div>Max: {Math.floor(temp.max)}&#176; F</div>
-    </td>
+    </div>
   );
 };

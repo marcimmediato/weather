@@ -6,18 +6,18 @@ const ForecastList = props => {
   const { forecast } = props;
   const { lon, lat } = props.forecast.city.coord;
   const forecastList = forecast.list.map((day, index) => {
-    return <ForecastListItem forecast={day} key={index} />;
+    return <ForecastListItem forecast={day} key={index} dayNum={index + 1} />;
   });
 
   return (
-    <tr className="weather-row">
-      <td className="name-of-city">
+    <div className="grid-row">
+      <div className="name-of-city">
         <a href={`${googleLinkBaseURL}${lat},${lon}`} target="_blank">
           {forecast.city.name}
         </a>
-      </td>
+      </div>
       {forecastList}
-    </tr>
+    </div>
   );
 };
 

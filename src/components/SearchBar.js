@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Input } from 'semantic-ui-react';
 
 class SearchBar extends Component {
   state = {
@@ -17,11 +18,12 @@ class SearchBar extends Component {
   render() {
     return (
       <form className="SearchBar" onSubmit={this.onSubmitHandler.bind(this)}>
-        <input
+        <Input
+          placeholder="Type your city"
           onChange={this.onChangeHandler.bind(this)}
           value={this.state.searchTerm}
         />
-        <button>Search</button>
+        <Button className="secondary">Search</Button>
       </form>
     );
   }

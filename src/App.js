@@ -27,13 +27,7 @@ class App extends Component {
   }
 
   render() {
-    let forecasts = (
-      <tr>
-        <td>
-          <p>Loading...</p>
-        </td>
-      </tr>
-    );
+    let forecasts = <p>Loading...</p>;
 
     if (this.state.forecasts.length > 0) {
       forecasts = this.state.forecasts.map((forecast, i) => {
@@ -48,9 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar fetch={this.fetchWeather.bind(this)} />
-        <table>
-          <tbody>{forecasts}</tbody>
-        </table>
+        <div className="container">{forecasts}</div>
       </div>
     );
   }
